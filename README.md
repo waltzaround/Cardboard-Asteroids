@@ -1,4 +1,15 @@
-# gladeye-hackathon-project-1
+# Gladeye Hackathon Project: Asteroids
+
+## Build Instructions
+
+1.	Open in Unity and go to `File -> Build and Run`.
+
+2.	When XCode opens, make sure to add `Security.framework` in the XCode project under `Build Phases -> Link Binary 	With Libraries` in Project Settings otherwise your will receive a build error.
+
+
+
+
+## Licence
 
 /*
  * ----------------------------------------------------------------------------
