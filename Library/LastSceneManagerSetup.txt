@@ -1,4 +1,4 @@
 sceneSetups:
-- path: C:/Users/walt/Desktop/ClipMyPlane/Assets/scene.unity
+- path: Assets/Scenes/sceneMap.unity
   isLoaded: 1
   isActive: 1
