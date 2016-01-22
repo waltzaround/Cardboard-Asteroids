@@ -1,6 +1,10 @@
 # Windows image file caches
-Thumbs.db
+[Tt]humbs.db
 ehthumbs.db
+.DS_Store*
+.Spotlight-V100
+.Trashes
+Icon?
 
 # Folder config file
 Desktop.ini
@@ -66,9 +70,11 @@ ExportedObj/
 *.booproj
 *.svd
 
-
 # Unity3D generated meta files
+*.meta
 *.pidb.meta
 
 # Unity3D Generated File On Crash Reports
 sysinfo.txt
+*.stackdump
+
