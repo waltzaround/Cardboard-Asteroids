@@ -9,6 +9,7 @@ public class Thrust : MonoBehaviour {
     public GameObject playerhead;
     private Transform trans;
     private Vector3 lookVector;
+	private Vector3 forceVector;
    
 
     // Use this for initialization
@@ -16,7 +17,7 @@ public class Thrust : MonoBehaviour {
     {
         rb = GetComponent<Rigidbody>();
 
-        playerhead = GameObject.Find("Head");
+        //playerhead = GameObject.Find("Head");
 
    //     if (playerhead == null)
      //       playerheads = GameObject.FindGameObjectsWithTag("PlayerHead");
@@ -40,7 +41,7 @@ public class Thrust : MonoBehaviour {
 
 
 
-        if (Cardboard.SDK.CardboardTriggered)
+		if (Cardboard.SDK.Triggered)
         {
             if (!thrustOn)
             {
@@ -58,10 +59,18 @@ public class Thrust : MonoBehaviour {
         {
             //     dir.z += 0.05f;
             //  rb.AddForce
-            Vector3 charlie = Vector3.Scale(trans.forward, lookVector);
-            rb.AddForce(charlie * 0.00005f);
-            //Debug.Log(rb.ToString("F4"));
+            forceVector = Vector3.Scale(trans.forward, lookVector);
+			//relative force adds force to the object in local space without taking into consideration the world around it
+			//rb.AddRelativeForce(forceVector * 0.005f);
+
+
+			//add an instant velocity change along the current look direction
+			rb.AddForce(trans.forward * 0.05f, ForceMode.VelocityChange);
         }
 
     }
+
+	void OnGUI() {
+		GUILayout.Box ("forceVector: " + forceVector.ToString() + ", thrustOn: "+thrustOn);
+	}
 }

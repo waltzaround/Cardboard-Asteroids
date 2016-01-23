@@ -33,7 +33,7 @@ public class FlyCam : MonoBehaviour {
 
 
 
-        if (Cardboard.SDK.CardboardTriggered )
+        /*if (Cardboard.SDK.CardboardTriggered )
         {
 			if (!thrustOn) {
 				thrustOn = true;
@@ -47,7 +47,7 @@ public class FlyCam : MonoBehaviour {
 
 		if (thrustOn) {
 			dir.z += 0.05f;
-		}
+		}*/
 
 
         // Mouse Look
