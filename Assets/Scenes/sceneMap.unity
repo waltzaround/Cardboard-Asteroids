@@ -20,10 +20,10 @@ RenderSettings:
   m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
+  m_AmbientSkyColor: {r: 0, g: 0, b: 0, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
-  m_AmbientIntensity: 0.45
+  m_AmbientIntensity: 0.34
   m_AmbientMode: 0
   m_SkyboxMaterial: {fileID: 2100000, guid: 88ec9a13802800449aaf825aff3aadc7, type: 2}
   m_HaloStrength: 0.5
@@ -260,7 +260,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 218655433}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dbc951e523d4b4dd79d5264c60003b99, type: 3}
+  m_Script: {fileID: 11500000, guid: 2ba5188548b9fff4dad804c2ec133d77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!54 &218655438
@@ -286,7 +286,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 218655433}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0c042780864f0c499321b562decba79, type: 3}
+  m_Script: {fileID: 11500000, guid: 7887c4c929d36c24185878f68bd93669, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 50
@@ -435,6 +435,18 @@ Prefab:
       propertyPath: m_ClearFlags
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2000004, guid: b8b03d395f5734e98af91ccf44f9bf47, type: 2}
+      propertyPath: m_BackGroundColor.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2000004, guid: b8b03d395f5734e98af91ccf44f9bf47, type: 2}
+      propertyPath: m_BackGroundColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2000004, guid: b8b03d395f5734e98af91ccf44f9bf47, type: 2}
+      propertyPath: m_BackGroundColor.b
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b8b03d395f5734e98af91ccf44f9bf47, type: 2}
   m_IsPrefabParent: 0
@@ -476,7 +488,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2105000847}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 98bb385d2f460405b8c23f6010940d91, type: 3}
+  m_Script: {fileID: 11500000, guid: 6afd8bf8b9c297a419471420a02d8497, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   starsMax: 1000
