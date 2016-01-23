@@ -1,81 +1,37 @@
 ﻿#pragma strict
 
-var arena : GameObject;
 
+// State
+
+var arena : GameObject;
 var arenaWidth = 0;
 
-class TravelDirection {
 
-  var axis : int;
-  var sign : int;
+// Functions
 
-  function TravelDirection (axis: int, sign: int) {
-    this.axis = axis;
-    this.sign = sign;
-  }
+function WrapTeleport (direction: TravelDirection) {
 
-  function prettyAxis (axis) {
-    return (axis == 0) ? "X" :
-           (axis == 1) ? "Y" :
-           (axis == 2) ? "Z" :
-           "?";
-  }
+  // For some reason, accessing transform in this way returns a copy.
+  // So just modify the copy and assign it back to the transform object.
 
-  function ToString () {
-    return (this.sign > 0 ? "+" : "-") + this.prettyAxis(this.axis);
-  }
-
-  static function FromVelocity (v: Vector3) {
-    var sign = 1;
-    var mag  = 0;
-    var dir  = -1;
-
-    for (var i = 0; i <= 2; i++) {
-      if (Mathf.Abs(v[i]) > Mathf.Abs(mag)) {
-        sign = v[i]/Mathf.Abs(v[i]);
-        mag  = v[i];
-        dir  = i;
-      }
-    }
-
-    return new TravelDirection(dir, sign);
-  }
+  var pos = this.gameObject.GetComponent.<Transform>().position;
+  pos[direction.axis] += arenaWidth * -direction.sign;
+  transform.position = pos;
 }
+
+
+// Engine Hooks
 
 function Start () {
-  arena = GameObject.Find("Arena");
-  arenaWidth = arena.GetComponent.<Transform>().lossyScale.x * 2;
-
-  Debug.Log("BoundaryTeleport activated");
-}
-
-
-function msc (v: Vector3) {
-}
-
-
-function Teleport (direction: TravelDirection) {
-  var transform = this.gameObject.GetComponent.<Transform>();
-
-  Debug.Log(direction.ToString());
-  Debug.Log(arenaWidth * direction.sign);
-
-  transform.position[direction.axis] += arenaWidth * direction.sign;
-}
-
-
-function OnTriggerEnter (coll : Collider) {
-  if (coll.gameObject === arena) {
-    Debug.Log("This shouldn't happen");
-  }
+  // Find and measure arena for collision
+  arena      = GameObject.Find("Arena");
+  arenaWidth = arena.GetComponent.<Transform>().lossyScale.x;
 }
 
 function OnTriggerExit (coll: Collider) {
   if (coll.gameObject === arena) {
-    Debug.Log("Blam");
-
     var vel = this.gameObject.GetComponent.<Rigidbody>().velocity;
-    Teleport(TravelDirection.FromVelocity(vel));
+    WrapTeleport(TravelDirection.FromVelocity(vel));
   }
 }
 
