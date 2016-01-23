@@ -18,6 +18,9 @@ public class Thrust : MonoBehaviour {
 		cardboard = GameObject.Find("CardboardControlManager").GetComponent<CardboardControl>();
 		cardboard.trigger.OnDown += CardboardDown;  // When the trigger goes down
 		cardboard.trigger.OnUp += CardboardUp;      // When the trigger comes back up
+		// When the magnet or touch goes down and up within the "click threshold" time
+		// That click speed threshold is configurable in the inspector
+		cardboard.trigger.OnClick += CardboardClick;
 
         rb = GetComponent<Rigidbody>();
     }
@@ -28,14 +31,28 @@ public class Thrust : MonoBehaviour {
 	private void CardboardDown(object sender) {
 		Debug.Log("Trigger went down");
 		//ChangeObjectColor("SphereDown");
-		thrustOn = true;
+		//thrustOn = true;
 	}
 
 	private void CardboardUp(object sender) {
 		Debug.Log("Trigger came up");
 		//ChangeObjectColor("SphereUp");
-		thrustOn = false;
+		//thrustOn = false;
 	}
+
+	private void CardboardClick(object sender) {
+		Debug.Log("Trigger clicked");
+		if (!thrustOn)
+		{
+			thrustOn = true;
+		}
+		else
+		{
+			thrustOn = false;
+		}
+	}
+
+
 	
 	// Update is called once per frame
 	void Update () {
@@ -43,7 +60,7 @@ public class Thrust : MonoBehaviour {
 		trans = playerHead.GetComponent<Transform>();
         lookVector = trans.eulerAngles;
 
-		/*if (Cardboard.SDK.Triggered)
+		if (Cardboard.SDK.Triggered)
         {
             if (!thrustOn)
             {
@@ -53,7 +70,7 @@ public class Thrust : MonoBehaviour {
             else {
                 thrustOn = false;
             }
-        }*/
+        }
 
         if (thrustOn)
         {
