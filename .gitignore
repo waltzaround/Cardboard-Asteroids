@@ -64,3 +64,4 @@ ExportedObj/
 sysinfo.txt
 *.stackdump
 /asteroids
+/UpgradeLog*

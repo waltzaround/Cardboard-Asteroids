@@ -342,11 +342,12 @@ MonoBehaviour:
   - {fileID: 162756, guid: b358be38f1c948c48a1e6c63d74300c5, type: 2}
   - {fileID: 161746, guid: 6c169dbd6acf492429bc6fc627b46dc0, type: 2}
   - {fileID: 144866, guid: bf97e74aa5a4242409b46ba173c85628, type: 2}
-  maxX: 100
-  maxY: 100
-  maxZ: 100
-  minVelocity: 1
-  maxVelocity: 2
+  arenaX: 100
+  arenaY: 100
+  arenaZ: 100
+  minVelocity: 0.3
+  maxVelocity: 1.5
+  scale: 3
 --- !u!4 &337534252
 Transform:
   m_ObjectHideFlags: 0

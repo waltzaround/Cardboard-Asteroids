@@ -1,14 +1,14 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &171130
+--- !u!1 &168930
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 413158}
-  - 114: {fileID: 11429134}
+  - 4: {fileID: 448834}
+  - 114: {fileID: 11490912}
   m_Layer: 0
   m_Name: AsteroidSpawner
   m_TagString: Untagged
@@ -16,24 +16,24 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &413158
+--- !u!4 &448834
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 171130}
+  m_GameObject: {fileID: 168930}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!114 &11429134
+--- !u!114 &11490912
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 171130}
+  m_GameObject: {fileID: 168930}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 95618c7dc87bb4bd29d2a17119d2484b, type: 3}
@@ -45,11 +45,12 @@ MonoBehaviour:
   - {fileID: 162756, guid: b358be38f1c948c48a1e6c63d74300c5, type: 2}
   - {fileID: 161746, guid: 6c169dbd6acf492429bc6fc627b46dc0, type: 2}
   - {fileID: 144866, guid: bf97e74aa5a4242409b46ba173c85628, type: 2}
-  maxX: 100
-  maxY: 100
-  maxZ: 100
-  minVelocity: 1
-  maxVelocity: 2
+  arenaX: 100
+  arenaY: 100
+  arenaZ: 100
+  minVelocity: 0.3
+  maxVelocity: 1.5
+  scale: 3
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -59,5 +60,5 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 171130}
+  m_RootGameObject: {fileID: 168930}
   m_IsPrefabParent: 1
