@@ -207,6 +207,7 @@ GameObject:
   - 114: {fileID: 218655437}
   - 54: {fileID: 218655438}
   - 114: {fileID: 218655439}
+  - 114: {fileID: 218655440}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -258,7 +259,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 218655433}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dbc951e523d4b4dd79d5264c60003b99, type: 3}
   m_Name: 
@@ -294,6 +295,19 @@ MonoBehaviour:
   inverted: 0
   smooth: 1
   acceleration: 0.1
+--- !u!114 &218655440
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 218655433}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8471275d11a4a5548a7c6080cc921b22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sensitivity: 0.25
+  playerhead: {fileID: 0}
 --- !u!1 &337534250
 GameObject:
   m_ObjectHideFlags: 0
@@ -501,6 +515,10 @@ Prefab:
     - target: {fileID: 2000004, guid: b8b03d395f5734e98af91ccf44f9bf47, type: 2}
       propertyPath: m_BackGroundColor.b
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100008, guid: b8b03d395f5734e98af91ccf44f9bf47, type: 2}
+      propertyPath: m_TagString
+      value: PlayerHead
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b8b03d395f5734e98af91ccf44f9bf47, type: 2}
