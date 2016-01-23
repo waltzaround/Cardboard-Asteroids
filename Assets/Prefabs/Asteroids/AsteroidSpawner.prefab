@@ -10,7 +10,7 @@ GameObject:
   - 4: {fileID: 448834}
   - 114: {fileID: 11490912}
   m_Layer: 0
-  m_Name: AsteroidSpawner 1
+  m_Name: AsteroidSpawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
