@@ -5,7 +5,7 @@ public class Thrust : MonoBehaviour {
     private bool thrustOn = false;
     public float speed = 0.25f;       // keep it from 0..1
     private Rigidbody rb;
-    public GameObject playerHead;
+    public GameObject playerHead; //assign the in-game instance of 'Head' from the Google Cardboard objects to allow movement along look direction
     private Transform trans;
     private Vector3 lookVector;
 	private Vector3 forceVector;
