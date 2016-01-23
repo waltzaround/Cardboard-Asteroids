@@ -26,10 +26,18 @@ public class FlyCam : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
-		
-		// Mouse Look
-		lastMouse = Input.mousePosition - lastMouse;
+
+
+            if (Cardboard.SDK.CardboardTriggered)
+            {
+            dir.z += 1.0f;
+            //something here;   
+        }
+
+
+
+            // Mouse Look
+            lastMouse = Input.mousePosition - lastMouse;
 		if ( ! inverted ) lastMouse.y = -lastMouse.y;
 		lastMouse *= sensitivity;
 		lastMouse = new Vector3( transform.eulerAngles.x + lastMouse.y, transform.eulerAngles.y + lastMouse.x, 0);
