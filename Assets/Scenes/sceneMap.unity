@@ -336,7 +336,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95618c7dc87bb4bd29d2a17119d2484b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numAsteroids: 10
+  numAsteroids: 5
   numAsteroidTypes: 3
   asteroids:
   - {fileID: 162756, guid: b358be38f1c948c48a1e6c63d74300c5, type: 2}
@@ -347,7 +347,7 @@ MonoBehaviour:
   arenaZ: 100
   minVelocity: 0.3
   maxVelocity: 1.5
-  scale: 3
+  scale: 40
 --- !u!4 &337534252
 Transform:
   m_ObjectHideFlags: 0
@@ -524,6 +524,10 @@ Prefab:
     - target: {fileID: 100008, guid: b8b03d395f5734e98af91ccf44f9bf47, type: 2}
       propertyPath: m_TagString
       value: PlayerHead
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400008, guid: b8b03d395f5734e98af91ccf44f9bf47, type: 2}
+      propertyPath: updateEarly
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b8b03d395f5734e98af91ccf44f9bf47, type: 2}
