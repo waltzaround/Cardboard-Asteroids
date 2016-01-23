@@ -15,12 +15,13 @@ public class Thrust : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
+		//cardboardControl trigger events are not currently working in Google Cardboard SDK 
 		cardboard = GameObject.Find("CardboardControlManager").GetComponent<CardboardControl>();
-		cardboard.trigger.OnDown += CardboardDown;  // When the trigger goes down
-		cardboard.trigger.OnUp += CardboardUp;      // When the trigger comes back up
+		//cardboard.trigger.OnDown += CardboardDown;  // When the trigger goes down
+		//cardboard.trigger.OnUp += CardboardUp;      // When the trigger comes back up
 		// When the magnet or touch goes down and up within the "click threshold" time
 		// That click speed threshold is configurable in the inspector
-		cardboard.trigger.OnClick += CardboardClick;
+		//cardboard.trigger.OnClick += CardboardClick;
 
         rb = GetComponent<Rigidbody>();
     }
@@ -28,7 +29,7 @@ public class Thrust : MonoBehaviour {
 	/*
   	* In this demo, we randomize object colours for triggered events
   	*/
-	private void CardboardDown(object sender) {
+	/*private void CardboardDown(object sender) {
 		Debug.Log("Trigger went down");
 		//ChangeObjectColor("SphereDown");
 		//thrustOn = true;
@@ -50,7 +51,7 @@ public class Thrust : MonoBehaviour {
 		{
 			thrustOn = false;
 		}
-	}
+	}*/
 
 
 	
