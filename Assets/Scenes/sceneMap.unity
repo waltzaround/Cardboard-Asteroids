@@ -294,6 +294,10 @@ MonoBehaviour:
   inverted: 0
   smooth: 1
   acceleration: 0.1
+--- !u!4 &964101725 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 400006, guid: b8b03d395f5734e98af91ccf44f9bf47, type: 2}
+  m_PrefabInternal: {fileID: 1947627457}
 --- !u!4 &1283041173 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400008, guid: b8b03d395f5734e98af91ccf44f9bf47, type: 2}
@@ -478,7 +482,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1859330155}
+  m_Father: {fileID: 964101725}
   m_RootOrder: 2
 --- !u!114 &2105000849
 MonoBehaviour:
