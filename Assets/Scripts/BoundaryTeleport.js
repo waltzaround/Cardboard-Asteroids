@@ -3,8 +3,8 @@
 
 // State
 
-var arena : GameObject;
-var arenaWidth = 0;
+private var arena : GameObject;
+private var arenaWidth = 0;
 
 
 // Functions

@@ -16,11 +16,11 @@ function Start () {
 
   // Fetch objects we care about
   arena  = GameObject.Find('Arena');
-  player = GameObject.Find('vehicle_playerShip');
+  player = GameObject.Find('Player');
 
   // Set player moving so I can watch it collide
   var body = player.GetComponent.<Rigidbody>();
-  body.AddForce(Vector3.up * 100);
+  body.AddForce(Vector3.up * 10);
 
 }
 
