@@ -1,18 +1,26 @@
-
 #pragma strict
 
 
-var space = GameObject.Find('GameSpace');
+// Shared references
 
+var arena  : GameObject;
+var player : GameObject;
+
+var players   = [];
+var asteroids = [];
+
+
+// Engine callbacks
 
 function Start () {
 
-  Debug.Log(space);
+  // Fetch objects we care about
+  arena  = GameObject.Find('Arena');
+  player = GameObject.Find('Player');
 
-}
-
-function Update () {
-
+  // Set player moving so I can watch it collide
+  var body = player.GetComponent.<Rigidbody>();
+  body.AddForce(Vector3.up * 10);
 
 }
 
