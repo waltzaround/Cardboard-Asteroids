@@ -1,6 +1,14 @@
 fileFormatVersion: 2
-guid: a3a8344d526314c1a8ac37bc81c9aea6
-timeCreated: 1453580902
+guid: 70735037f8f3d644bad6bb6e5ad81997
+labels:
+- Vr
+- Virtualreality
+- Cardboard
+- Demoscene
+- Google
+- Example
+- Android
+timeCreated: 1441061517
 licenseType: Free
 DefaultImporter:
   userData: 

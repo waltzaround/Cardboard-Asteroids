@@ -1,6 +1,14 @@
 fileFormatVersion: 2
-guid: 34df07e60720d4940a42faa8fff7a865
-timeCreated: 1453580902
+guid: db1d21851e5c9bd41ad8f5a71a246fe1
+labels:
+- Vr
+- Virtualreality
+- Cardboard
+- Demoscene
+- Google
+- Example
+- Android
+timeCreated: 1441061517
 licenseType: Free
 MonoImporter:
   serializedVersion: 2
