@@ -9,13 +9,33 @@ public class Thrust : MonoBehaviour {
     private Transform trans;
     private Vector3 lookVector;
 	private Vector3 forceVector;
+	private static CardboardControl cardboard;
    
 
     // Use this for initialization
     void Start()
     {
+		cardboard = GameObject.Find("CardboardControlManager").GetComponent<CardboardControl>();
+		cardboard.trigger.OnDown += CardboardDown;  // When the trigger goes down
+		cardboard.trigger.OnUp += CardboardUp;      // When the trigger comes back up
+
         rb = GetComponent<Rigidbody>();
     }
+
+	/*
+  	* In this demo, we randomize object colours for triggered events
+  	*/
+	private void CardboardDown(object sender) {
+		Debug.Log("Trigger went down");
+		//ChangeObjectColor("SphereDown");
+		thrustOn = true;
+	}
+
+	private void CardboardUp(object sender) {
+		Debug.Log("Trigger came up");
+		//ChangeObjectColor("SphereUp");
+		thrustOn = false;
+	}
 	
 	// Update is called once per frame
 	void Update () {
@@ -23,7 +43,7 @@ public class Thrust : MonoBehaviour {
 		trans = playerHead.GetComponent<Transform>();
         lookVector = trans.eulerAngles;
 
-		if (Cardboard.SDK.Triggered)
+		/*if (Cardboard.SDK.Triggered)
         {
             if (!thrustOn)
             {
@@ -33,7 +53,7 @@ public class Thrust : MonoBehaviour {
             else {
                 thrustOn = false;
             }
-        }
+        }*/
 
         if (thrustOn)
         {
@@ -49,4 +69,5 @@ public class Thrust : MonoBehaviour {
 	void OnGUI() {
 		GUILayout.Box ("forceVector: " + forceVector.ToString() + ", thrustOn: "+thrustOn);
 	}
+
 }
