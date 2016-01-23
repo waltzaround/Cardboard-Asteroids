@@ -17,6 +17,8 @@ public class FlyCam : MonoBehaviour {
 	public float acceleration = 0.1f;
 	private float actSpeed = 0.0f;			// keep it from 0 to 1
 	private Vector3 lastDir = new Vector3();
+
+	private bool thrustOn = false;
 	
 	
 	// Use this for initialization
@@ -27,17 +29,29 @@ public class FlyCam : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
+		Vector3 dir = new Vector3();			// create (0,0,0)
 
-            if (Cardboard.SDK.CardboardTriggered)
-            {
-            dir.z += 1.0f;
+
+
+        if (Cardboard.SDK.CardboardTriggered )
+        {
+			if (!thrustOn) {
+				thrustOn = true;
+
+			} else {
+				thrustOn = false;
+			}
+            
             //something here;   
         }
 
+		if (thrustOn) {
+			dir.z += 0.05f;
+		}
 
 
-            // Mouse Look
-            lastMouse = Input.mousePosition - lastMouse;
+        // Mouse Look
+        lastMouse = Input.mousePosition - lastMouse;
 		if ( ! inverted ) lastMouse.y = -lastMouse.y;
 		lastMouse *= sensitivity;
 		lastMouse = new Vector3( transform.eulerAngles.x + lastMouse.y, transform.eulerAngles.y + lastMouse.x, 0);
@@ -45,12 +59,12 @@ public class FlyCam : MonoBehaviour {
 		lastMouse = Input.mousePosition;
 		
 		
-		
-		
-		
+	
+	
+	
 		// Movement of the camera
 		
-		Vector3 dir = new Vector3();			// create (0,0,0)
+
 		
 		if (Input.GetKey(KeyCode.W)) dir.z += 1.0f;
 		if (Input.GetKey(KeyCode.S)) dir.z -= 1.0f;
