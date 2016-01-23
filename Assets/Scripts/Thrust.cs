@@ -65,7 +65,9 @@ public class Thrust : MonoBehaviour {
 
 
 			//add an instant velocity change along the current look direction
-			rb.AddForce(trans.forward * 0.05f, ForceMode.VelocityChange);
+			//rb.AddForce(trans.forward * 0.05f, ForceMode.VelocityChange);
+
+			rb.AddForce(trans.forward * 0.1f, ForceMode.VelocityChange);
         }
 
     }
