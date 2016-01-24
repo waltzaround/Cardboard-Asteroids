@@ -66,7 +66,7 @@ public class BulletTargeting : MonoBehaviour
 
 
             //Tell the bullet to be "pushed" forward by an amount set by Bullet_Forward_Force. 
-			Temporary_RigidBody.AddForce(trans.forward * Bullet_Forward_Force * (bulletForceMin + rb.velocity.magnitude),ForceMode.Impulse);
+			Temporary_RigidBody.AddForce(Bullet_Emitter.transform.forward * Bullet_Forward_Force * (bulletForceMin + rb.velocity.magnitude),ForceMode.Impulse);
 
            // Temporary_RigidBody.velocity = transform.TransformDirection(Vector3.forward * 100);
 
