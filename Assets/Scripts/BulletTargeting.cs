@@ -21,6 +21,8 @@ public class BulletTargeting : MonoBehaviour
 	private static CardboardControl cardboard;
     private Rigidbody Temporary_RigidBody;
 	private bool autoFireOn = false;
+	private bool autoFireKeyOn = false;
+	public float rateOfFire = 0.2F;
 
     // Use this for initialization
     void Start()
@@ -38,7 +40,7 @@ public class BulletTargeting : MonoBehaviour
 
 		//cardboard.pointer.Show();
 
-		InvokeRepeating("FireCheck", 0.1f, 0.1f);
+		InvokeRepeating("FireCheck", 2, rateOfFire);
     }
 
 	private void CardboardGazeChange(object sender) {
@@ -67,15 +69,18 @@ public class BulletTargeting : MonoBehaviour
 
 	private void FireCheck(){
 
-		Debug.Log("Firing...");
 
-		trans = playerHead.GetComponent<Transform>();
-		lookVector = trans.eulerAngles;
-		forceVector = Vector3.Scale(trans.forward, lookVector);
-		//rb.AddForce(trans.forward * speed, ForceMode.VelocityChange);
 
-		if (Input.GetKeyDown("z") || autoFireOn)
+		if (autoFireOn || autoFireKeyOn)
 		{
+
+			Debug.Log("Firing...");
+
+			trans = playerHead.GetComponent<Transform>();
+			lookVector = trans.eulerAngles;
+			forceVector = Vector3.Scale(trans.forward, lookVector);
+			//rb.AddForce(trans.forward * speed, ForceMode.VelocityChange);
+
 			//The Bullet instantiation happens here.
 			GameObject Temporary_Bullet_Handler;
 			Temporary_Bullet_Handler = Instantiate(Bullet, Bullet_Emitter.transform.position, Bullet_Emitter.transform.rotation) as GameObject;
@@ -121,7 +126,12 @@ public class BulletTargeting : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+		if (Input.GetKeyDown ("z")) {
+			Debug.Log("Auto fire key on");
+			autoFireKeyOn = true;
+		} else {
+			autoFireKeyOn = false;
+		}
         
     }
     void OnGUI()
