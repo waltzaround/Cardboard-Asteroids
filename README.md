@@ -10,10 +10,18 @@ Look in the direction you want to move, and push the magnetic button to toggle t
 
 ## Build Instructions
 
+####iOS
+
 1.	Open in Unity and go to `File -> Build and Run`.
 
 2.	When XCode opens, make sure to add `Security.framework` in the XCode project under `Build Phases -> Link Binary 	With Libraries` in Project Settings otherwise your will receive a build error.
 
+
+####Android
+
+1.  Open in unity and go to `File -> Build`.
+
+2.  When you choose android in Build, make sure you choose Landscape left as the default orientation.
 
 ## Licence
 
