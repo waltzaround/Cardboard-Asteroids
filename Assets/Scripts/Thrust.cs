@@ -29,7 +29,7 @@ public class Thrust : MonoBehaviour {
 	/*
   	* In this demo, we randomize object colours for triggered events
   	*/
-	/*private void CardboardDown(object sender) {
+	private void CardboardDown(object sender) {
 		Debug.Log("Trigger went down");
 		//ChangeObjectColor("SphereDown");
 		//thrustOn = true;
@@ -51,7 +51,7 @@ public class Thrust : MonoBehaviour {
 		{
 			thrustOn = false;
 		}
-	}*/
+	}
 
 
 	
