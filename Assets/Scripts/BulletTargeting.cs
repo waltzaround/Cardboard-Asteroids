@@ -18,46 +18,78 @@ public class BulletTargeting : MonoBehaviour
     private Transform trans;
     private Vector3 lookVector;
     private Vector3 forceVector;
-
+	private static CardboardControl cardboard;
     private Rigidbody Temporary_RigidBody;
+	private bool autoFireOn = false;
 
     // Use this for initialization
     void Start()
     {
+		cardboard = GameObject.Find("CardboardControlManager").GetComponent<CardboardControl>();
         rb = GetComponent<Rigidbody>();
 		Physics.IgnoreLayerCollision (9, this.gameObject.layer);
 		Physics.IgnoreLayerCollision (9, 9);
+
+		// When the thing we're looking at changes, determined by a gaze
+		// The gaze distance and layer mask are public as configurable in the inspector
+		cardboard.gaze.OnChange += CardboardGazeChange;
+		// When we've been staring at an object
+		cardboard.gaze.OnStare += CardboardStare;
+
+		//cardboard.pointer.Show();
+
+		InvokeRepeating("FireCheck", 0.1f, 0.1f);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
+	private void CardboardGazeChange(object sender) {
+		// You can grab the data from the sender instead of the CardboardControl object
+		CardboardControlGaze gaze = sender as CardboardControlGaze;
+		// We can access to the object we're looking at
+		// gaze.IsHeld will make sure the gaze.Object isn't null
+		if (gaze.IsHeld() && gaze.Object().name.Contains("Asteroid")) {
+			//ChangeObjectColor(gaze.Object().name);
+			// Highlighting can help identify which objects can be interacted with
+			// The pointer is hidden by default but we already toggled that in the inspector
+			cardboard.pointer.Hide();
+			cardboard.pointer.Highlight(Color.red);
+			autoFireOn = true;
+		}
+		// We also can access to the last object we looked at
+		// gaze.WasHeld will make sure the gaze.PreviousObject isn't null
+		if (gaze.WasHeld() && gaze.PreviousObject().name.Contains("Asteroid")) {
+			//ResetObjectColor(gaze.PreviousObject().name);
+			// Use these to undo pointer hiding and highlighting
+			cardboard.pointer.Show();
+			autoFireOn = false;
+			cardboard.pointer.ClearHighlight();
+		}
+	}
 
-        trans = playerHead.GetComponent<Transform>();
-        lookVector = trans.eulerAngles;
-        forceVector = Vector3.Scale(trans.forward, lookVector);
-        //rb.AddForce(trans.forward * speed, ForceMode.VelocityChange);
+	private void FireCheck(){
 
+		Debug.Log("Firing...");
 
+		trans = playerHead.GetComponent<Transform>();
+		lookVector = trans.eulerAngles;
+		forceVector = Vector3.Scale(trans.forward, lookVector);
+		//rb.AddForce(trans.forward * speed, ForceMode.VelocityChange);
 
-
-
-        if (Input.GetKeyDown("z"))
-        {
-            //The Bullet instantiation happens here.
-            GameObject Temporary_Bullet_Handler;
-            Temporary_Bullet_Handler = Instantiate(Bullet, Bullet_Emitter.transform.position, Bullet_Emitter.transform.rotation) as GameObject;
+		if (Input.GetKeyDown("z") || autoFireOn)
+		{
+			//The Bullet instantiation happens here.
+			GameObject Temporary_Bullet_Handler;
+			Temporary_Bullet_Handler = Instantiate(Bullet, Bullet_Emitter.transform.position, Bullet_Emitter.transform.rotation) as GameObject;
 			Temporary_Bullet_Handler.layer = 9;
 			//bullet inaccuracy
 
 
-            //Sometimes bullets may appear rotated incorrectly due to the way its pivot was set from the original modeling package.
-            //This is EASILY corrected here, you might have to rotate it from a different axis and or angle based on your particular mesh.
-            Temporary_Bullet_Handler.transform.Rotate(Vector3.left * 90);
+			//Sometimes bullets may appear rotated incorrectly due to the way its pivot was set from the original modeling package.
+			//This is EASILY corrected here, you might have to rotate it from a different axis and or angle based on your particular mesh.
+			Temporary_Bullet_Handler.transform.Rotate(Vector3.left * 90);
 
-            //Retrieve the Rigidbody component from the instantiated Bullet and control it.
+			//Retrieve the Rigidbody component from the instantiated Bullet and control it.
 
-            Temporary_RigidBody = Temporary_Bullet_Handler.GetComponent<Rigidbody>();
+			Temporary_RigidBody = Temporary_Bullet_Handler.GetComponent<Rigidbody>();
 
 			//Physics.IgnoreCollision(Temporary_Bullet_Handler.GetComponent<Collider>(), GetComponent<Collider>());
 
@@ -65,14 +97,32 @@ public class BulletTargeting : MonoBehaviour
 
 
 
-            //Tell the bullet to be "pushed" forward by an amount set by Bullet_Forward_Force. 
+			//Tell the bullet to be "pushed" forward by an amount set by Bullet_Forward_Force. 
 			Temporary_RigidBody.AddForce(Bullet_Emitter.transform.forward * Bullet_Forward_Force * (bulletForceMin + rb.velocity.magnitude),ForceMode.Impulse);
 
-           // Temporary_RigidBody.velocity = transform.TransformDirection(Vector3.forward * 100);
+			// Temporary_RigidBody.velocity = transform.TransformDirection(Vector3.forward * 100);
 
-            //Basic Clean Up, set the Bullets to self destruct after 10 Seconds, I am being VERY generous here, normally 3 seconds is plenty.
-            Destroy(Temporary_Bullet_Handler, 10.0f);
-        }
+			//Basic Clean Up, set the Bullets to self destruct after 10 Seconds, I am being VERY generous here, normally 3 seconds is plenty.
+			Destroy(Temporary_Bullet_Handler, 10.0f);
+		}
+	}
+
+	private void CardboardStare(object sender) {
+		CardboardControlGaze gaze = sender as CardboardControlGaze;
+		if (gaze.IsHeld() && gaze.Object().name.Contains("Asteroid")) {
+			// Be sure to hide the cursor when it's not needed
+			cardboard.pointer.Hide();
+
+			autoFireOn = true;
+
+		}
+	}
+
+    // Update is called once per frame
+    void Update()
+    {
+
+        
     }
     void OnGUI()
     {

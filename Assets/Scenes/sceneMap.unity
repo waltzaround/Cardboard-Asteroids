@@ -327,7 +327,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Bullet_Emitter: {fileID: 820619871}
   Bullet: {fileID: 111658, guid: 7b14d9c095434468f84afabe80f52090, type: 2}
-  Bullet_Forward_Force: 3
+  Bullet_Forward_Force: 1
+  bulletForceMin: 20
   playerHead: {fileID: 423472466}
 --- !u!1 &337534250
 GameObject:
@@ -393,7 +394,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 820619872}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: BulletSpawnpoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -461,7 +462,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 110264, guid: 652814e1e9ffe134aa9b9c61f31fb762, type: 2}
       propertyPath: m_Layer
-      value: 10
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 652814e1e9ffe134aa9b9c61f31fb762, type: 2}
@@ -629,35 +630,35 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 150434, guid: b8b03d395f5734e98af91ccf44f9bf47, type: 2}
       propertyPath: m_Layer
-      value: 10
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 150432, guid: b8b03d395f5734e98af91ccf44f9bf47, type: 2}
       propertyPath: m_Layer
-      value: 10
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: b8b03d395f5734e98af91ccf44f9bf47, type: 2}
       propertyPath: m_Layer
-      value: 10
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 100006, guid: b8b03d395f5734e98af91ccf44f9bf47, type: 2}
       propertyPath: m_Layer
-      value: 10
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: b8b03d395f5734e98af91ccf44f9bf47, type: 2}
       propertyPath: m_Layer
-      value: 10
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 150430, guid: b8b03d395f5734e98af91ccf44f9bf47, type: 2}
       propertyPath: m_Layer
-      value: 10
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 100004, guid: b8b03d395f5734e98af91ccf44f9bf47, type: 2}
       propertyPath: m_Layer
-      value: 10
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 100008, guid: b8b03d395f5734e98af91ccf44f9bf47, type: 2}
       propertyPath: m_Layer
-      value: 10
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b8b03d395f5734e98af91ccf44f9bf47, type: 2}
@@ -673,7 +674,7 @@ GameObject:
   - 198: {fileID: 2105000851}
   - 199: {fileID: 2105000850}
   - 114: {fileID: 2105000849}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2312,7 +2313,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: d9808401c68af274a8edfbed3d1b53c7, type: 3}
       propertyPath: m_Layer
-      value: 10
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d9808401c68af274a8edfbed3d1b53c7, type: 3}

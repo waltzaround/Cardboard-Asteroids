@@ -16,7 +16,7 @@ public class Thrust : MonoBehaviour {
     void Start()
     {
 		//cardboardControl trigger events are not currently working in Google Cardboard SDK 
-		cardboard = GameObject.Find("CardboardControlManager").GetComponent<CardboardControl>();
+		//cardboard = GameObject.Find("CardboardControlManager").GetComponent<CardboardControl>();
 		//cardboard.trigger.OnDown += CardboardDown;  // When the trigger goes down
 		//cardboard.trigger.OnUp += CardboardUp;      // When the trigger comes back up
 		// When the magnet or touch goes down and up within the "click threshold" time
