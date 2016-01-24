@@ -12,6 +12,11 @@ public class BulletTargeting : MonoBehaviour
     //Enter the Speed of the Bullet from the Component Inspector.
     public float Bullet_Forward_Force;
 
+    private Rigidbody rb;
+    public GameObject playerHead; //assign the in-game instance of 'Head' from the Google Cardboard objects to allow movement along look direction
+    private Transform trans;
+    private Vector3 lookVector;
+    private Vector3 forceVector;
 
 
     private Rigidbody Temporary_RigidBody;
@@ -19,13 +24,23 @@ public class BulletTargeting : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-
+        rb = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown("space"))
+
+        trans = playerHead.GetComponent<Transform>();
+        lookVector = trans.eulerAngles;
+        forceVector = Vector3.Scale(trans.forward, lookVector);
+        //rb.AddForce(trans.forward * speed, ForceMode.VelocityChange);
+
+
+
+
+
+        if (Input.GetKeyDown("z"))
         {
             //The Bullet instantiation happens here.
             GameObject Temporary_Bullet_Handler;
@@ -43,7 +58,7 @@ public class BulletTargeting : MonoBehaviour
             Temporary_RigidBody = Temporary_Bullet_Handler.GetComponent<Rigidbody>();
 
             //Tell the bullet to be "pushed" forward by an amount set by Bullet_Forward_Force. 
-            Temporary_RigidBody.AddForce(transform.forward * Bullet_Forward_Force, ForceMode.VelocityChange);
+            Temporary_RigidBody.AddForce(forceVector * Bullet_Forward_Force, ForceMode.VelocityChange);
 
            // Temporary_RigidBody.velocity = transform.TransformDirection(Vector3.forward * 100);
 
