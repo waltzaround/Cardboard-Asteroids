@@ -85,7 +85,7 @@ public class Thrust : MonoBehaviour {
     }
 
 	void OnGUI() {
-		GUILayout.Box ("forceVector: " + forceVector.ToString() + ", thrustOn: "+thrustOn);
+		//GUILayout.Box ("forceVector: " + forceVector.ToString() + ", thrustOn: "+thrustOn);
 	}
 
 }
