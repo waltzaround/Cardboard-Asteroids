@@ -14,7 +14,7 @@ GameObject:
   - 135: {fileID: 13547442}
   - 136: {fileID: 13604626}
   - 114: {fileID: 11423768}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: Asteroid3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -154,7 +154,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Layer
-      value: 10
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
