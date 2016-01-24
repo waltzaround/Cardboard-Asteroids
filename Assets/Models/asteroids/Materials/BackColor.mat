@@ -6,11 +6,11 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: prop_asteroid_02_mat
-  m_Shader: {fileID: 10708, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: _NORMALMAP
+  m_Name: BackColor
+  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
+  m_ShaderKeywords: 
   m_LightmapFlags: 5
-  m_CustomRenderQueue: 2000
+  m_CustomRenderQueue: -1
   stringTagMap: {}
   m_SavedProperties:
     serializedVersion: 2
@@ -19,14 +19,14 @@ Material:
         first:
           name: _MainTex
         second:
-          m_Texture: {fileID: 2800000, guid: ba157ba55f72c424a9e88f3c029997c4, type: 3}
+          m_Texture: {fileID: 0}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
         first:
           name: _BumpMap
         second:
-          m_Texture: {fileID: 2800000, guid: 6d9b42ac01f24bf4d98923573f103575, type: 3}
+          m_Texture: {fileID: 0}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
@@ -93,10 +93,6 @@ Material:
         second: 0.5
       data:
         first:
-          name: _Shininess
-        second: 0.044885967
-      data:
-        first:
           name: _Parallax
         second: 0.02
       data:
@@ -106,7 +102,7 @@ Material:
       data:
         first:
           name: _Glossiness
-        second: 0.385
+        second: 0.5
       data:
         first:
           name: _BumpScale
@@ -139,8 +135,4 @@ Material:
       data:
         first:
           name: _Color
-        second: {r: 1, g: 1, b: 1, a: 1}
-      data:
-        first:
-          name: _SpecColor
-        second: {r: 0.3897059, g: 0.3606163, b: 0.29801038, a: 1}
+        second: {r: 0.6431373, g: 0.69803923, b: 0.73333335, a: 1}
