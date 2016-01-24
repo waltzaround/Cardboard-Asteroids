@@ -1,5 +1,9 @@
 # Gladeye Hackathon Project: Asteroids
 
+VR Version of Asteroids that can be compiled to either Android or iOS from Unity.
+Look in the direction you want to move, and push the magnetic button to toggle the engines
+
+
 ## Setup Instructions
 
 *	If loading the project in Unity for the first time, you may need to also download and add the Google Cardboard SDK to your project before all the script linkages will work correctly for the Cardboard related prefabs.
