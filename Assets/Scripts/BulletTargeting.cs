@@ -18,14 +18,13 @@ public class BulletTargeting : MonoBehaviour
     private Vector3 lookVector;
     private Vector3 forceVector;
 
-
     private Rigidbody Temporary_RigidBody;
 
     // Use this for initialization
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-		Physics.IgnoreLayerCollision (this.gameObject.layer, 9);
+		Physics.IgnoreLayerCollision (9, this.gameObject.layer);
 		Physics.IgnoreLayerCollision (9, 9);
     }
 
@@ -59,10 +58,14 @@ public class BulletTargeting : MonoBehaviour
 
             Temporary_RigidBody = Temporary_Bullet_Handler.GetComponent<Rigidbody>();
 
-			Physics.IgnoreCollision(Temporary_Bullet_Handler.GetComponent<Collider>(), GetComponent<Collider>());
+			//Physics.IgnoreCollision(Temporary_Bullet_Handler.GetComponent<Collider>(), GetComponent<Collider>());
+
+			//Thrust thrust = this.gameObject.GetComponent<Thrust>();
+
+
 
             //Tell the bullet to be "pushed" forward by an amount set by Bullet_Forward_Force. 
-			Temporary_RigidBody.AddForce(Bullet_Emitter.transform.forward * Bullet_Forward_Force, ForceMode.VelocityChange);
+			Temporary_RigidBody.AddForce(Bullet_Emitter.transform.forward * Bullet_Forward_Force, ForceMode.Impulse);
 
            // Temporary_RigidBody.velocity = transform.TransformDirection(Vector3.forward * 100);
 
