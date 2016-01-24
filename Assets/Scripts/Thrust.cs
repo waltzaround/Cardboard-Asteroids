@@ -32,13 +32,13 @@ public class Thrust : MonoBehaviour {
 	private void CardboardDown(object sender) {
 		Debug.Log("Trigger went down");
 		//ChangeObjectColor("SphereDown");
-		//thrustOn = true;
+		thrustOn = true;
 	}
 
 	private void CardboardUp(object sender) {
 		Debug.Log("Trigger came up");
 		//ChangeObjectColor("SphereUp");
-		//thrustOn = false;
+		thrustOn = false;
 	}
 
 	private void CardboardClick(object sender) {

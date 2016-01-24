@@ -66,7 +66,7 @@ public class BulletTargeting : MonoBehaviour
 			//ChangeObjectColor(gaze.Object().name);
 			// Highlighting can help identify which objects can be interacted with
 			// The pointer is hidden by default but we already toggled that in the inspector
-			cardboard.reticle.Hide();
+			//cardboard.reticle.Hide();
 			cardboard.reticle.Highlight(Color.red);
 			autoFireOn = true;
 		}
@@ -75,7 +75,7 @@ public class BulletTargeting : MonoBehaviour
 		if (gaze.WasHeld() && gaze.PreviousObject().name.Contains("Asteroid")) {
 			//ResetObjectColor(gaze.PreviousObject().name);
 			// Use these to undo pointer hiding and highlighting
-			cardboard.reticle.Show();
+			//cardboard.reticle.Show();
 			autoFireOn = false;
 			cardboard.reticle.ClearHighlight();
 		}
@@ -132,7 +132,7 @@ public class BulletTargeting : MonoBehaviour
 		CardboardControlGaze gaze = sender as CardboardControlGaze;
 		if (gaze.IsHeld() && gaze.Object().name.Contains("Asteroid")) {
 			// Be sure to hide the cursor when it's not needed
-			cardboard.reticle.Hide();
+			//cardboard.reticle.Hide();
 
 			autoFireOn = true;
 
