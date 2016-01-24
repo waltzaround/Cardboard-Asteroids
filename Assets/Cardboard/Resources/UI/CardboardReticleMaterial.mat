@@ -142,7 +142,7 @@ Material:
       data:
         first:
           name: _DistanceInMeters
-        second: 2
+        second: 1
       data:
         first:
           name: _Border

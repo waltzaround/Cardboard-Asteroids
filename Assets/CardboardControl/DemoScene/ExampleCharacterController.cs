@@ -69,25 +69,30 @@ public class ExampleCharacterController : MonoBehaviour {
     // gaze.IsHeld will make sure the gaze.Object isn't null
     if (gaze.IsHeld() && gaze.Object().name.Contains("Cube")) {
       ChangeObjectColor(gaze.Object().name);
-      // Highlighting can help identify which objects can be interacted with
-      // The pointer is hidden by default but we already toggled that in the inspector
-      cardboard.pointer.Highlight(Color.red);
+      if (gaze.Object().name == "HighlightCube") {
+        // Highlighting can help identify which objects can be interacted with
+        // The reticle is hidden by default but we already toggled that in the inspector
+        cardboard.reticle.Highlight(Color.red);        
+      }
     }
     // We also can access to the last object we looked at
     // gaze.WasHeld will make sure the gaze.PreviousObject isn't null
     if (gaze.WasHeld() && gaze.PreviousObject().name.Contains("Cube")) {
       ResetObjectColor(gaze.PreviousObject().name);
-      // Use these to undo pointer hiding and highlighting
-      cardboard.pointer.Show();
-      cardboard.pointer.ClearHighlight();
+      // Use these to undo reticle hiding and highlighting
+      cardboard.reticle.Show();
+      cardboard.reticle.ClearHighlight();
     }
+
+    // Be sure to set the Reticle Layer Mask on the CardboardControlManager
+    // to grow the reticle on the objects you want. The default is everything.
   }
 
   private void CardboardStare(object sender) {
     CardboardControlGaze gaze = sender as CardboardControlGaze;
     if (gaze.IsHeld() && gaze.Object().name.Contains("Cube")) {
       // Be sure to hide the cursor when it's not needed
-      cardboard.pointer.Hide();
+      cardboard.reticle.Hide();
     }
   }
 

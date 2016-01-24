@@ -1,8 +1,18 @@
 fileFormatVersion: 2
-guid: c44c5704600ad442a8e577a8df91d7c5
+guid: 54ab719a1ab4646be835190f9afb450b
+labels:
+- Vr
+- Virtualreality
+- Cardboard
+- Demoscene
+- Google
+- Example
+- Android
+- virtualreality
+- vr
+- cardboard
+- google
 folderAsset: yes
-timeCreated: 1453583595
-licenseType: Free
 DefaultImporter:
   userData: 
   assetBundleName: 

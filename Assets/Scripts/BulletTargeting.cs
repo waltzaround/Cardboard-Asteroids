@@ -38,10 +38,24 @@ public class BulletTargeting : MonoBehaviour
 		// When we've been staring at an object
 		cardboard.gaze.OnStare += CardboardStare;
 
+		// When we rotate the device into portrait mode
+		cardboard.box.OnTilt += CardboardMagnetReset;
+
 		//cardboard.pointer.Show();
 
 		InvokeRepeating("FireCheck", 2, rateOfFire);
     }
+
+	private void CardboardMagnetReset(object sender) {
+		// Resetting the magnet will reset the polarity if up and down are confused
+		// This occasionally happens when the device is inserted into the enclosure
+		// or if the magnetometer readings are weak enough to cut in and out
+		Debug.Log("Device tilted");
+		cardboard.trigger.ResetMagnetState();
+	}
+
+	// Be sure to set the Reticle Layer Mask on the CardboardControlManager
+	// to grow the reticle on the objects you want. The default is everything.
 
 	private void CardboardGazeChange(object sender) {
 		// You can grab the data from the sender instead of the CardboardControl object
@@ -52,8 +66,8 @@ public class BulletTargeting : MonoBehaviour
 			//ChangeObjectColor(gaze.Object().name);
 			// Highlighting can help identify which objects can be interacted with
 			// The pointer is hidden by default but we already toggled that in the inspector
-			cardboard.pointer.Hide();
-			cardboard.pointer.Highlight(Color.red);
+			cardboard.reticle.Hide();
+			cardboard.reticle.Highlight(Color.red);
 			autoFireOn = true;
 		}
 		// We also can access to the last object we looked at
@@ -61,9 +75,9 @@ public class BulletTargeting : MonoBehaviour
 		if (gaze.WasHeld() && gaze.PreviousObject().name.Contains("Asteroid")) {
 			//ResetObjectColor(gaze.PreviousObject().name);
 			// Use these to undo pointer hiding and highlighting
-			cardboard.pointer.Show();
+			cardboard.reticle.Show();
 			autoFireOn = false;
-			cardboard.pointer.ClearHighlight();
+			cardboard.reticle.ClearHighlight();
 		}
 	}
 
@@ -118,7 +132,7 @@ public class BulletTargeting : MonoBehaviour
 		CardboardControlGaze gaze = sender as CardboardControlGaze;
 		if (gaze.IsHeld() && gaze.Object().name.Contains("Asteroid")) {
 			// Be sure to hide the cursor when it's not needed
-			cardboard.pointer.Hide();
+			cardboard.reticle.Hide();
 
 			autoFireOn = true;
 
