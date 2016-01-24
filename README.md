@@ -28,4 +28,4 @@ Look in the direction you want to move, and push the magnetic button to toggle t
 
 ###THE BEER-WARE LICENSE (Revision 42):
 
-[Walter Lim](walter.lim@gladeye.co.nz), [Elliot Whiley](elliot.w@hotmail.com), [Michael Andrew](michael@uxvirtual.com), [Tim Dawson](Tim@ghost.st), and [Jordan](Jordan@ghost.st) wrote this project.  As long as you retain this notice you can do whatever you want with this stuff. If you meet any of us some day, and you think this stuff is worth it, you can buy us a beer in return.
+[Walter Lim](mailto:walter.lim@gladeye.co.nz), [Elliot Whiley](mailto:elliot.w@hotmail.com), [Michael Andrew](mailto:michael@uxvirtual.com), [Tim Dawson](mailto:Tim@ghost.st), and [Jordan](mailto:Jordan@ghost.st) wrote this project.  As long as you retain this notice you can do whatever you want with this stuff. If you meet any of us some day, and you think this stuff is worth it, you can buy us a beer in return.
