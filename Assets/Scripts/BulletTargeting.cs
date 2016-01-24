@@ -25,6 +25,8 @@ public class BulletTargeting : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+		Physics.IgnoreLayerCollision (this.gameObject.layer, 9);
+		Physics.IgnoreLayerCollision (9, 9);
     }
 
     // Update is called once per frame
@@ -45,8 +47,8 @@ public class BulletTargeting : MonoBehaviour
             //The Bullet instantiation happens here.
             GameObject Temporary_Bullet_Handler;
             Temporary_Bullet_Handler = Instantiate(Bullet, Bullet_Emitter.transform.position, Bullet_Emitter.transform.rotation) as GameObject;
-
-            //bullet inaccuracy
+			Temporary_Bullet_Handler.layer = 9;
+			//bullet inaccuracy
 
 
             //Sometimes bullets may appear rotated incorrectly due to the way its pivot was set from the original modeling package.
@@ -57,8 +59,10 @@ public class BulletTargeting : MonoBehaviour
 
             Temporary_RigidBody = Temporary_Bullet_Handler.GetComponent<Rigidbody>();
 
+			Physics.IgnoreCollision(Temporary_Bullet_Handler.GetComponent<Collider>(), GetComponent<Collider>());
+
             //Tell the bullet to be "pushed" forward by an amount set by Bullet_Forward_Force. 
-            Temporary_RigidBody.AddForce(forceVector * Bullet_Forward_Force, ForceMode.VelocityChange);
+			Temporary_RigidBody.AddForce(Bullet_Emitter.transform.forward * Bullet_Forward_Force, ForceMode.VelocityChange);
 
            // Temporary_RigidBody.velocity = transform.TransformDirection(Vector3.forward * 100);
 
@@ -68,7 +72,7 @@ public class BulletTargeting : MonoBehaviour
     }
     void OnGUI()
     {
-        GUILayout.Box("forceVector: " + Temporary_RigidBody.ToString());
+        //GUILayout.Box("forceVector: " + Temporary_RigidBody.ToString());
     }
 
 }
