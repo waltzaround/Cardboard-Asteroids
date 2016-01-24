@@ -109,8 +109,8 @@ public class BulletTargeting : MonoBehaviour
 
 		if (autoFireOn)
 		{
-
-			Fire ();
+            GetComponent<AudioSource>().Play();
+            Fire ();
 		}
 	}
 
