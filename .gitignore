@@ -65,3 +65,4 @@ sysinfo.txt
 *.stackdump
 /asteroids
 /UpgradeLog*
+.idea
