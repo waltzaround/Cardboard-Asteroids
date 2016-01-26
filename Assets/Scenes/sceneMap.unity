@@ -262,7 +262,7 @@ GameObject:
   - 54: {fileID: 218655438}
   - 114: {fileID: 218655440}
   - 114: {fileID: 218655441}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -379,7 +379,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &337534251
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -457,7 +457,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 411294, guid: bf97e74aa5a4242409b46ba173c85628, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 144866, guid: bf97e74aa5a4242409b46ba173c85628, type: 2}
       propertyPath: m_IsActive
@@ -507,7 +507,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 419782, guid: b358be38f1c948c48a1e6c63d74300c5, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 162756, guid: b358be38f1c948c48a1e6c63d74300c5, type: 2}
       propertyPath: m_IsActive
@@ -569,7 +569,7 @@ MonoBehaviour:
   sourceLoop: 0
   sourceMute: 0
   sourcePitch: 1
-  sourceVolume: 1
+  sourceVolume: 0.409
   sourceMaxDistance: 500
   sourceMinDistance: 0
   hrtfEnabled: 1
