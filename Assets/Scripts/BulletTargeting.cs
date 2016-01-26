@@ -35,6 +35,7 @@ public class BulletTargeting : MonoBehaviour
 		// When the thing we're looking at changes, determined by a gaze
 		// The gaze distance and layer mask are public as configurable in the inspector
 		cardboard.gaze.OnChange += CardboardGazeChange;
+
 		// When we've been staring at an object
 		cardboard.gaze.OnStare += CardboardStare;
 
@@ -56,6 +57,9 @@ public class BulletTargeting : MonoBehaviour
 
 	// Be sure to set the Reticle Layer Mask on the CardboardControlManager
 	// to grow the reticle on the objects you want. The default is everything.
+
+	//TODO: detect if object is destroyed. Check if current gaze object still exists?
+
 
 	private void CardboardGazeChange(object sender) {
 		// You can grab the data from the sender instead of the CardboardControl object
@@ -90,19 +94,19 @@ public class BulletTargeting : MonoBehaviour
 		//rb.AddForce(trans.forward * speed, ForceMode.VelocityChange);
 
 		//The Bullet instantiation happens here.
-		GameObject Temporary_Bullet_Handler;
-		Temporary_Bullet_Handler = Instantiate(Bullet, Bullet_Emitter.transform.position, Bullet_Emitter.transform.rotation) as GameObject;
-		Temporary_Bullet_Handler.layer = 9;
+		GameObject BulletObject;
+		BulletObject = Instantiate(Bullet, Bullet_Emitter.transform.position, Bullet_Emitter.transform.rotation) as GameObject;
+		//BulletObject.layer = 9;
 		//bullet inaccuracy
 
 
 		//Sometimes bullets may appear rotated incorrectly due to the way its pivot was set from the original modeling package.
 		//This is EASILY corrected here, you might have to rotate it from a different axis and or angle based on your particular mesh.
-		Temporary_Bullet_Handler.transform.Rotate(Vector3.left * 90);
+		BulletObject.transform.Rotate(Vector3.left * 90);
 
 		//Retrieve the Rigidbody component from the instantiated Bullet and control it.
 
-		Temporary_RigidBody = Temporary_Bullet_Handler.GetComponent<Rigidbody>();
+		Temporary_RigidBody = BulletObject.GetComponent<Rigidbody>();
 
 		//Physics.IgnoreCollision(Temporary_Bullet_Handler.GetComponent<Collider>(), GetComponent<Collider>());
 
@@ -116,7 +120,7 @@ public class BulletTargeting : MonoBehaviour
 		// Temporary_RigidBody.velocity = transform.TransformDirection(Vector3.forward * 100);
 
 		//Basic Clean Up, set the Bullets to self destruct after 10 Seconds, I am being VERY generous here, normally 3 seconds is plenty.
-		Destroy(Temporary_Bullet_Handler, 10.0f);
+		Destroy(BulletObject, 10.0f);
 	}
 
 	private void FireCheck(){
