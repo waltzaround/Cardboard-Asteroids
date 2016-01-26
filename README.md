@@ -3,6 +3,9 @@
 VR Version of Asteroids that can be compiled to either Android or iOS from Unity.
 Look in the direction you want to move, and push the magnetic button to toggle the engines
 
+Changelog:
+https://trello.com/b/xh9r1jOj/cardboard-asteroids
+
 ## Setup Instructions
 
 *	If loading the project in Unity for the first time, you may need to also download and add the Google Cardboard SDK 
