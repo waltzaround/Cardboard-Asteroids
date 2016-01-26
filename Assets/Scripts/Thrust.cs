@@ -7,8 +7,8 @@ public class Thrust : MonoBehaviour {
     private Rigidbody rb;
     public GameObject playerHead; //assign the in-game instance of 'Head' from the Google Cardboard objects to allow movement along look direction
     private Transform trans;
-    private Vector3 lookVector;
-	private Vector3 forceVector;
+    //private Vector3 lookVector;
+	//private Vector3 forceVector;
 	private static CardboardControl cardboard;
    
 
@@ -59,7 +59,7 @@ public class Thrust : MonoBehaviour {
 	void Update () {
 
 		trans = playerHead.GetComponent<Transform>();
-        lookVector = trans.eulerAngles;
+        //lookVector = trans.eulerAngles;
 
 		if (Cardboard.SDK.Triggered)
         {
@@ -75,7 +75,7 @@ public class Thrust : MonoBehaviour {
 
         if (thrustOn)
         {
-            forceVector = Vector3.Scale(trans.forward, lookVector);
+            //forceVector = Vector3.Scale(trans.forward, lookVector);
 
 			//add an instant velocity change along the current look direction
 			//will be affected by drag of object this script is attached to
@@ -83,9 +83,5 @@ public class Thrust : MonoBehaviour {
         }
 
     }
-
-	void OnGUI() {
-		//GUILayout.Box ("forceVector: " + forceVector.ToString() + ", thrustOn: "+thrustOn);
-	}
 
 }

@@ -15,9 +15,9 @@ public class BulletTargeting : MonoBehaviour
 
     private Rigidbody rb;
     public GameObject playerHead; //assign the in-game instance of 'Head' from the Google Cardboard objects to allow movement along look direction
-    private Transform trans;
-    private Vector3 lookVector;
-    private Vector3 forceVector;
+    //private Transform trans;
+    //private Vector3 lookVector;
+    //private Vector3 forceVector;
 	private static CardboardControl cardboard;
     private Rigidbody Temporary_RigidBody;
 	private bool autoFireOn = false;
@@ -84,9 +84,9 @@ public class BulletTargeting : MonoBehaviour
 	private void Fire(){
 		Debug.Log("Firing...");
 
-		trans = playerHead.GetComponent<Transform>();
-		lookVector = trans.eulerAngles;
-		forceVector = Vector3.Scale(trans.forward, lookVector);
+		//trans = playerHead.GetComponent<Transform>();
+		//lookVector = trans.eulerAngles;
+		//forceVector = Vector3.Scale(trans.forward, lookVector);
 		//rb.AddForce(trans.forward * speed, ForceMode.VelocityChange);
 
 		//The Bullet instantiation happens here.
@@ -143,11 +143,14 @@ public class BulletTargeting : MonoBehaviour
     void Update()
     {
 		if (Input.GetKeyDown ("z")) {
-			Debug.Log("Auto fire key on");
-			Fire ();
-			//autoFireKeyOn = true;
-		} else {
-			//autoFireKeyOn = false;
+			Debug.Log ("Auto fire key on");
+			//Fire ();
+
+			if (!autoFireKeyOn) {
+				autoFireKeyOn = true;
+			} else {
+				autoFireKeyOn = false;
+			}
 		}
         
     }

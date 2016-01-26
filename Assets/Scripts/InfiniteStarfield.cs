@@ -27,8 +27,8 @@ public class InfiniteStarfield : MonoBehaviour {
 
 		for (int i = 0; i < starsMax; i++) {
 			points[i].position = Random.insideUnitSphere * starDistance + tx.position;
-			points[i].color = new Color(1,1,1, 1);
-			points[i].size = starSize;
+			points[i].startColor = new Color(1,1,1, 1);
+			points[i].startSize = starSize;
 		}
 	}
 

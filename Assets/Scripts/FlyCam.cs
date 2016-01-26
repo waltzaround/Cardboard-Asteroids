@@ -18,9 +18,6 @@ public class FlyCam : MonoBehaviour {
 	private float actSpeed = 0.0f;			// keep it from 0 to 1
 	private Vector3 lastDir = new Vector3();
 
-	private bool thrustOn = false;
-	
-	
 	// Use this for initialization
 	void Start () {
 	
