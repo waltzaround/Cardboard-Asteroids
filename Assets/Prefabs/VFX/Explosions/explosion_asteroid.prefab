@@ -44,6 +44,7 @@ GameObject:
   - 4: {fileID: 400004}
   - 198: {fileID: 19800004}
   - 199: {fileID: 19900004}
+  - 114: {fileID: 11451830}
   m_Layer: 0
   m_Name: explosion_asteroid
   m_TagString: Untagged
@@ -119,6 +120,31 @@ Transform:
   m_Children: []
   m_Father: {fileID: 400004}
   m_RootOrder: 1
+--- !u!114 &11451830
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6dbca64e524ea44f9b26142ec59aca8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  directivityAlpha: 0
+  directivitySharpness: 1
+  gainDb: 0
+  occlusionEnabled: 0
+  playOnAwake: 1
+  rolloffMode: 0
+  sourceClip: {fileID: 8300000, guid: 3dc7455402dfa462b89a4bbd513955e9, type: 3}
+  sourceLoop: 0
+  sourceMute: 0
+  sourcePitch: 1
+  sourceVolume: 1
+  sourceMaxDistance: 500
+  sourceMinDistance: 0
+  hrtfEnabled: 1
 --- !u!198 &19800000
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -6100,7 +6126,15 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: sourceClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 3dc7455402dfa462b89a4bbd513955e9, type: 3}
+    - target: {fileID: 0}
+      propertyPath: occlusionEnabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 100004}

@@ -29,8 +29,8 @@ public class BulletTargeting : MonoBehaviour
     {
 		cardboard = GameObject.Find("CardboardControlManager").GetComponent<CardboardControl>();
         rb = GetComponent<Rigidbody>();
-		Physics.IgnoreLayerCollision (9, this.gameObject.layer);
-		Physics.IgnoreLayerCollision (9, 9);
+		//Physics.IgnoreLayerCollision (9, this.gameObject.layer);
+		//Physics.IgnoreLayerCollision (9, 9);
 
 		// When the thing we're looking at changes, determined by a gaze
 		// The gaze distance and layer mask are public as configurable in the inspector
@@ -82,7 +82,7 @@ public class BulletTargeting : MonoBehaviour
 	}
 
 	private void Fire(){
-		Debug.Log("Firing...");
+		//Debug.Log("Firing...");
 
 		//trans = playerHead.GetComponent<Transform>();
 		//lookVector = trans.eulerAngles;
@@ -123,7 +123,7 @@ public class BulletTargeting : MonoBehaviour
 
 		if (autoFireOn)
 		{
-            GetComponent<AudioSource>().Play();
+			Bullet_Emitter.GetComponent<CardboardAudioSource>().Play();
             Fire ();
 		}
 	}
