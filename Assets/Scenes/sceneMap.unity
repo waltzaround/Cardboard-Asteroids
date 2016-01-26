@@ -398,9 +398,9 @@ MonoBehaviour:
   - {fileID: 162756, guid: b358be38f1c948c48a1e6c63d74300c5, type: 2}
   - {fileID: 161746, guid: 6c169dbd6acf492429bc6fc627b46dc0, type: 2}
   - {fileID: 144866, guid: bf97e74aa5a4242409b46ba173c85628, type: 2}
-  arenaX: 100
-  arenaY: 100
-  arenaZ: 100
+  arenaX: 300
+  arenaY: 300
+  arenaZ: 300
   minVelocity: 0.3
   maxVelocity: 1.5
   scale: 30
@@ -569,7 +569,7 @@ MonoBehaviour:
   sourceLoop: 0
   sourceMute: 0
   sourcePitch: 1
-  sourceVolume: 0.409
+  sourceVolume: 0.056
   sourceMaxDistance: 500
   sourceMinDistance: 0
   hrtfEnabled: 1

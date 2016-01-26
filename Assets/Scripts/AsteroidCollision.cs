@@ -32,7 +32,7 @@ public class AsteroidCollision : MonoBehaviour {
 			this.health -= 10;
 
 			if (this.health <= 0) {
-				createExplosion();
+				createExplosionAtPos(collision.transform.position,this.gameObject.transform.localScale.magnitude);
 
 				//destroy asteroid
 				Destroy(this.gameObject);
@@ -40,9 +40,15 @@ public class AsteroidCollision : MonoBehaviour {
 		}
 	}
 
-	void createExplosion(){
+	void createExplosionAtPos(Vector3 pos,float maxScale){
 		Vector3 expPos = this.transform.position;
-		Object exp = Instantiate(explosionPrefab, expPos, Quaternion.identity);
+		GameObject exp = Instantiate(explosionPrefab, pos, Quaternion.identity) as GameObject;
+
+		ExplosionDamage explosionDamage = exp.GetComponent<ExplosionDamage>();
+
+		explosionDamage.transform.localScale = new Vector3 (500, 500, 500);
+		explosionDamage.maxScale = maxScale;
+
 		Destroy(exp, explosionLife);
 	}
 }

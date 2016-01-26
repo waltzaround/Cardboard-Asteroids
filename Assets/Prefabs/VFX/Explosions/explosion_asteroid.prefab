@@ -45,6 +45,8 @@ GameObject:
   - 198: {fileID: 19800004}
   - 199: {fileID: 19900004}
   - 114: {fileID: 11451830}
+  - 114: {fileID: 11498680}
+  - 135: {fileID: 13570994}
   m_Layer: 0
   m_Name: explosion_asteroid
   m_TagString: Untagged
@@ -143,8 +145,33 @@ MonoBehaviour:
   sourcePitch: 1
   sourceVolume: 1
   sourceMaxDistance: 500
-  sourceMinDistance: 0
+  sourceMinDistance: 100
   hrtfEnabled: 1
+--- !u!114 &11498680
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39e18b0b3dfcf43e39ef42d8f127af12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxScale: 8
+  velocity: 2
+--- !u!135 &13570994
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100004}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!198 &19800000
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -6134,6 +6161,18 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: occlusionEnabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: gainDb
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: sourceMaxDistance
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: sourceMinDistance
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
