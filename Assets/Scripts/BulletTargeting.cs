@@ -23,6 +23,7 @@ public class BulletTargeting : MonoBehaviour
 	private bool autoFireOn = false;
 	private bool autoFireKeyOn = false;
 	public float rateOfFire = 0.2F;
+	private GameObject currentObject;
 
     // Use this for initialization
     void Start()
@@ -70,9 +71,10 @@ public class BulletTargeting : MonoBehaviour
 			//ChangeObjectColor(gaze.Object().name);
 			// Highlighting can help identify which objects can be interacted with
 			// The pointer is hidden by default but we already toggled that in the inspector
-			//cardboard.reticle.Hide();
+			//currentObject = gaze.Object();
+			//InvokeRepeating("TargetExistsCheck", 1, 1);
 			cardboard.reticle.Highlight(Color.red);
-			autoFireOn = true;
+			//autoFireOn = true;
 		}
 		// We also can access to the last object we looked at
 		// gaze.WasHeld will make sure the gaze.PreviousObject isn't null
@@ -80,8 +82,17 @@ public class BulletTargeting : MonoBehaviour
 			//ResetObjectColor(gaze.PreviousObject().name);
 			// Use these to undo pointer hiding and highlighting
 			//cardboard.reticle.Show();
+			CancelInvoke ("TargetExistsCheck");
 			autoFireOn = false;
 			cardboard.reticle.ClearHighlight();
+		}
+	}
+
+	private void TargetExistsCheck(){
+		//target has been destroyed - stop firing
+		if(currentObject == null){
+			CancelInvoke ("TargetExistsCheck");
+			autoFireOn = false;
 		}
 	}
 
@@ -138,6 +149,8 @@ public class BulletTargeting : MonoBehaviour
 			// Be sure to hide the cursor when it's not needed
 			//cardboard.reticle.Hide();
 
+			currentObject = gaze.Object();
+			InvokeRepeating("TargetExistsCheck", 1, 1);
 			autoFireOn = true;
 
 		}
