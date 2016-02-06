@@ -131,7 +131,7 @@ public class BulletTargeting : MonoBehaviour
 		// Temporary_RigidBody.velocity = transform.TransformDirection(Vector3.forward * 100);
 
 		//Basic Clean Up, set the Bullets to self destruct after 10 Seconds, I am being VERY generous here, normally 3 seconds is plenty.
-		Destroy(BulletObject, 10.0f);
+		Destroy(BulletObject, 15.0f);
 	}
 
 	private void FireCheck(){

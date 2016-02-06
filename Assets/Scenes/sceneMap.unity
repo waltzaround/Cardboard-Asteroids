@@ -359,10 +359,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Bullet_Emitter: {fileID: 820619871}
   Bullet: {fileID: 111658, guid: 7b14d9c095434468f84afabe80f52090, type: 2}
-  Bullet_Forward_Force: 1
+  Bullet_Forward_Force: 3
   bulletForceMin: 20
   playerHead: {fileID: 423472466}
-  rateOfFire: 0.2
+  rateOfFire: 0.1
 --- !u!1 &337534250
 GameObject:
   m_ObjectHideFlags: 0
@@ -460,7 +460,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 411294, guid: bf97e74aa5a4242409b46ba173c85628, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 144866, guid: bf97e74aa5a4242409b46ba173c85628, type: 2}
       propertyPath: m_IsActive
