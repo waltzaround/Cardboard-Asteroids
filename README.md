@@ -19,6 +19,8 @@ features and checking the progress of bug fixes.
 2.	When XCode opens, make sure to add `Security.framework` in the XCode project under 
     `Build Phases -> Link Binary With Libraries` in Project Settings otherwise your will receive a build error.
 
+3.  Turn bitcode support off in `Build Settings -> Enable Bitcode` and set it to `No` for *Debug* and *Release*
+
 ### Android
 
 1.  Open in unity and go to `File -> Build`.
