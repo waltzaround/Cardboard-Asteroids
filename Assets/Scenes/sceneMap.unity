@@ -362,7 +362,7 @@ MonoBehaviour:
   Bullet_Forward_Force: 3
   bulletForceMin: 20
   playerHead: {fileID: 423472466}
-  rateOfFire: 0.1
+  rateOfFire: 0.15
 --- !u!1 &337534250
 GameObject:
   m_ObjectHideFlags: 0
