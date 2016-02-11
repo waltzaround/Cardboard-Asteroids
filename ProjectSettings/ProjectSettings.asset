@@ -439,7 +439,7 @@ PlayerSettings:
   WebGL::exceptionSupport: 1
   WebGL::memorySize: 256
   WebPlayer::ScriptingBackend: 0
-  iOS::Architecture: 1
+  iOS::Architecture: 2
   iOS::EnableIncrementalBuildSupportForIl2cpp: 1
   iOS::ScriptingBackend: 1
   tvOS::Architecture: 1

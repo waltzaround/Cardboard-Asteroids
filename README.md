@@ -7,10 +7,20 @@ features and checking the progress of bug fixes.
 
 ## Setup Instructions
 
-*	If loading the project in Unity for the first time, you may need to also download and add the Google Cardboard SDK 
-    to your project before all the script linkages will work correctly for the Cardboard related prefabs.
+*	Make sure you are running Unity `5.3.2f1` and XCode 7 as this is the most compatible version with this project to date.
+
+*   When building into XCode for the first time, you may be asked to install the possibly 'incompatible' Unity plugin. 
+    Allow it, as this will allow the Unity editor to trigger the clean / build cycle in XCode.
 
 ## Build Instructions
+
+Note: there is currently a bug in the Unity `5.3.2x` audio spatializer which breaks `CardboardAudioListener` and causes 
+crashing on startup: https://github.com/googlesamples/cardboard-unity/issues/150. We have disabled 
+`CardboardAudioListener` in the meantime as a workaround so 3D audio will not be enabled.
+
+Note: *antialiasing* and *soft particles* have been disabled for the *Beautiful* and *Fantastic* quality settings for
+the project as they may cause performance issues when rendering particles on iOS devices. See:
+https://github.com/googlesamples/cardboard-unity/issues/64
 
 ### iOS
 
@@ -20,6 +30,8 @@ features and checking the progress of bug fixes.
     `Build Phases -> Link Binary With Libraries` in Project Settings otherwise your will receive a build error.
 
 3.  Turn bitcode support off in `Build Settings -> Enable Bitcode` and set it to `No` for *Debug* and *Release*
+
+4.  Run *Clean*, *Build* then *Run* on your device.
 
 ### Android
 
