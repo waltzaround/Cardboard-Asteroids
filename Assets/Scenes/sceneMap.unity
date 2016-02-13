@@ -576,6 +576,10 @@ MonoBehaviour:
 Transform:
   m_PrefabParentObject: {fileID: 400008, guid: b8b03d395f5734e98af91ccf44f9bf47, type: 2}
   m_PrefabInternal: {fileID: 1947627457}
+--- !u!4 &1451945817 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 400006, guid: b8b03d395f5734e98af91ccf44f9bf47, type: 2}
+  m_PrefabInternal: {fileID: 1947627457}
 --- !u!1001 &1578285633
 Prefab:
   m_ObjectHideFlags: 0
@@ -882,7 +886,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1283041173}
+  m_Father: {fileID: 1451945817}
   m_RootOrder: 2
 --- !u!114 &2105000849
 MonoBehaviour:
@@ -897,8 +901,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   starsMax: 1000
   starSize: 0.4
-  starDistance: 100
-  starClipDistance: 20
+  starDistance: 80
+  starClipDistance: 0
 --- !u!199 &2105000850
 ParticleSystemRenderer:
   m_ObjectHideFlags: 0

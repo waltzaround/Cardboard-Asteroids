@@ -12,8 +12,8 @@ public class InfiniteStarfield : MonoBehaviour {
 
 	public int starsMax = 1000;
 	public float starSize = 0.4f;
-	public float starDistance = 100;
-	public float starClipDistance = 20;
+	public float starDistance = 80; //this must be set to a value lower than the camera clip distance or the starfield may get clipped when viewed on certain angles
+	public float starClipDistance = 0;
 	private float starDistanceSqr;
 	private float starClipDistanceSqr;
 
