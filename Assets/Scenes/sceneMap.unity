@@ -415,10 +415,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 8
---- !u!4 &408849983 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 400006, guid: b8b03d395f5734e98af91ccf44f9bf47, type: 2}
-  m_PrefabInternal: {fileID: 1947627457}
 --- !u!1 &423472466 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100008, guid: b8b03d395f5734e98af91ccf44f9bf47, type: 2}
@@ -845,7 +841,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: b8b03d395f5734e98af91ccf44f9bf47, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: b8b03d395f5734e98af91ccf44f9bf47, type: 2}
       propertyPath: m_RootOrder
@@ -886,8 +882,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 408849983}
-  m_RootOrder: 0
+  m_Father: {fileID: 1283041173}
+  m_RootOrder: 2
 --- !u!114 &2105000849
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -900,9 +896,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   starsMax: 1000
-  starSize: 0.2
+  starSize: 0.4
   starDistance: 100
-  starClipDistance: 5
+  starClipDistance: 20
 --- !u!199 &2105000850
 ParticleSystemRenderer:
   m_ObjectHideFlags: 0
@@ -910,8 +906,8 @@ ParticleSystemRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2105000847}
   m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
   m_Materials:
   - {fileID: 10301, guid: 0000000000000000f000000000000000, type: 0}
   m_SubsetIndices: 
@@ -940,7 +936,7 @@ ParticleSystemRenderer:
   m_NormalDirection: 1
   m_RenderAlignment: 0
   m_Pivot: {x: 0, y: 0, z: 0}
-  m_Mesh: {fileID: 0}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
   m_Mesh1: {fileID: 0}
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}

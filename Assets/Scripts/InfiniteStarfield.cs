@@ -10,10 +10,10 @@ public class InfiniteStarfield : MonoBehaviour {
 	private Transform tx;
 	private ParticleSystem.Particle[] points;
 
-	public int starsMax = 100;
-	public float starSize = 1;
-	public float starDistance = 10;
-	public float starClipDistance = 1;
+	public int starsMax = 1000;
+	public float starSize = 0.4f;
+	public float starDistance = 100;
+	public float starClipDistance = 20;
 	private float starDistanceSqr;
 	private float starClipDistanceSqr;
 

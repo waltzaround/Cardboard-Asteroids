@@ -15,6 +15,8 @@ features and checking the progress of bug fixes.
 
 ## Build Instructions
 
+Note: the StarField *Particle System* must be placed as a child of the CardboardHead and must be set to *Play On Awake*.
+
 Note: there is currently a bug in the Unity `5.3.2x` audio spatializer which breaks `CardboardAudioListener` and causes 
 crashing on startup: https://github.com/googlesamples/cardboard-unity/issues/150. On this version of Unity you will need
 to disable `CardboardAudioListener` as a workaround. This will mean audio will be disabled.
