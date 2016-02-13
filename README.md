@@ -7,10 +7,17 @@ features and checking the progress of bug fixes.
 
 ## Setup Instructions
 
-*	If loading the project in Unity for the first time, you may need to also download and add the Google Cardboard SDK 
-    to your project before all the script linkages will work correctly for the Cardboard related prefabs.
+*	Make sure you are running Unity `5.3.1f1` and XCode 7 as this is the most compatible version with this project to 
+    date.
+
+*   When building into XCode for the first time, you may be asked to install the possibly 'incompatible' Unity plugin. 
+    Allow it, as this will allow the Unity editor to trigger the clean / build cycle in XCode.
 
 ## Build Instructions
+
+Note: there is currently a bug in the Unity `5.3.2x` audio spatializer which breaks `CardboardAudioListener` and causes 
+crashing on startup: https://github.com/googlesamples/cardboard-unity/issues/150. On this version of Unity you will need
+to disable `CardboardAudioListener` as a workaround. This will mean audio will be disabled.
 
 ### iOS
 
@@ -18,6 +25,11 @@ features and checking the progress of bug fixes.
 
 2.	When XCode opens, make sure to add `Security.framework` in the XCode project under 
     `Build Phases -> Link Binary With Libraries` in Project Settings otherwise your will receive a build error.
+
+3.  If you are running Unity 5.3.2, turn off bitcode support in `Build Settings -> Enable Bitcode` and set it to `No` 
+    for *Debug* and *Release*
+
+4.  Run *Clean*, *Build* then *Run* on your device.
 
 ### Android
 
