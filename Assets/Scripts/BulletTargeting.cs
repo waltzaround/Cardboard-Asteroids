@@ -24,8 +24,6 @@ public class BulletTargeting : MonoBehaviour
 	private bool autoFireKeyOn = false;
 	public float rateOfFire = 0.2F;
 	private GameObject currentObject;
-	private RaycastHit lastHit;
-	private CardboardControlGaze gaze;
 
     // Use this for initialization
     void Start()
@@ -66,7 +64,7 @@ public class BulletTargeting : MonoBehaviour
 
 	private void CardboardGazeChange(object sender) {
 		// You can grab the data from the sender instead of the CardboardControl object
-		gaze = sender as CardboardControlGaze;
+		CardboardControlGaze gaze = sender as CardboardControlGaze;
 		// We can access to the object we're looking at
 		// gaze.IsHeld will make sure the gaze.Object isn't null
 		if (gaze.IsHeld() && gaze.Object().name.Contains("Asteroid")) {
@@ -125,17 +123,6 @@ public class BulletTargeting : MonoBehaviour
 
 		//Thrust thrust = this.gameObject.GetComponent<Thrust>();
 
-		if(Physics.Raycast(playerHead.transform.position,lastHit.point))
-		{
-			Debug.DrawLine( transform.position, lastHit.point, Color.red);
-
-			Debug.Log(lastHit.point );    
-			//Rigidbody instantiatedProjectile = Instantiate(projectile, transform.position,   transform.rotation);
-
-			Temporary_RigidBody.velocity = (lastHit.point - transform.position).normalized * Bullet_Forward_Force;
-			Temporary_RigidBody.rotation = Quaternion.LookRotation(Temporary_RigidBody.velocity);
-
-		}
 
 
 		//Tell the bullet to be "pushed" forward by an amount set by Bullet_Forward_Force. 
@@ -157,16 +144,13 @@ public class BulletTargeting : MonoBehaviour
 	}
 
 	private void CardboardStare(object sender) {
-		gaze = sender as CardboardControlGaze;
+		CardboardControlGaze gaze = sender as CardboardControlGaze;
 		if (gaze.IsHeld() && gaze.Object().name.Contains("Asteroid")) {
 			// Be sure to hide the cursor when it's not needed
 			//cardboard.reticle.Hide();
 
 			currentObject = gaze.Object();
 			InvokeRepeating("TargetExistsCheck", 1, 1);
-
-			lastHit = gaze.Hit ();
-
 			autoFireOn = true;
 
 		}
